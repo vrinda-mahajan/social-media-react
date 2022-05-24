@@ -28,8 +28,8 @@ export const Navbar = () => {
   return (
       <Flex
         pos="sticky"
-        py={5}
-        px={8}
+        py={4}
+        px={6}
         top={0}
         borderBottom="1px"
         borderColor={useColorModeValue("green.100", "gray.700")}
@@ -37,7 +37,7 @@ export const Navbar = () => {
         bg={useColorModeValue("white", "gray.800")}
       >
         <Link to="/login">
-            <Image w={200} src={useColorModeValue(logo,logo2)} alt='logo' />
+            <Image w={150} src={useColorModeValue(logo,logo2)} alt='logo' />
         </Link>
         <Spacer />
         <IconButton mr={6} isRound="true" size='lg' variant="ghost" onClick={toggleColorMode}>

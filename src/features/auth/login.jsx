@@ -33,7 +33,7 @@ export const Login = () => {
 
     return (
         <Stack align='center' bg={useColorModeValue('background',"gray.800")} >
-        <Flex w={[350,400,500,600]} my={4} p={10} boxShadow='xl' rounded='2xl' bg={useColorModeValue('white',"gray.700")}  direction="column" gap={3} >
+        <Flex w={[300,400,450,500]} my={4} p={10} boxShadow='xl' rounded='2xl' bg={useColorModeValue('white',"gray.700")}  direction="column" gap={3} >
             <Stack alignItems='center' spacing={8}>
                 <Heading>Login</Heading>
                 <Image w={150} src={authImg} alt='auth img' />
