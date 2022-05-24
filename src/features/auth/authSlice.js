@@ -4,8 +4,8 @@ import { toast } from "react-toastify";
 
 
 const initialState = {
-    token:null||localStorage.getItem("token"),
-    user:null||JSON.parse(localStorage.getItem("user")),
+    token:localStorage.getItem("token")||null,
+    user:JSON.parse(localStorage.getItem("user"))||null,
     authStatus:"idle",
     error:''
 }   

@@ -35,8 +35,8 @@ export const Signup = () => {
     }
 
     return (
-        <Stack align='center' bg={useColorModeValue('background',"gray.800")} >
-        <Flex w={[350,400,450]} my={4} p={10} boxShadow='xl' rounded='2xl' bg={useColorModeValue('white',"gray.700")}  direction="column" gap={3} >
+        <Stack align='center' minH={"90vh"} bg={useColorModeValue('background',"gray.800")} >
+        <Flex w={[350,400,450]} my={4} px={10} py={4} boxShadow='xl' rounded='2xl' bg={useColorModeValue('white',"gray.700")}  direction="column" gap={3} >
             <Stack alignItems='center' spacing={8}>
                 <Heading>Signup</Heading>
                 <Image w={100} src={authImg} alt='auth img' />
