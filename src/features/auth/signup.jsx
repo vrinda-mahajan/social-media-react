@@ -45,25 +45,24 @@ export const Signup = () => {
                 {/* Firstname */}
                 <FormControl isRequired>
                     <FormLabel htmlFor='firstname'>Firstname</FormLabel>
-                    <Input onChange={(e)=>{setUserDetails(prev=>({...prev,firstname:e.target.value}))}} size='lg' id='firstname' placeholder='Firstname' />
+                    <Input onChange={(e)=>{setUserDetails(prev=>({...prev,firstname:e.target.value}))}} id='firstname' placeholder='Firstname' />
                 </FormControl>
                 {/* Lastname */}
                 <FormControl isRequired>
                     <FormLabel htmlFor='lastname'>Lastname</FormLabel>
-                    <Input onChange={(e)=>{setUserDetails(prev=>({...prev,lastname:e.target.value}))}} size='lg' id='lastname' placeholder='Lastname' />
+                    <Input onChange={(e)=>{setUserDetails(prev=>({...prev,lastname:e.target.value}))}} id='lastname' placeholder='Lastname' />
                 </FormControl>
             </Flex>
             {/* Username */}
             <FormControl isRequired>
                 <FormLabel htmlFor='username'>Username</FormLabel>
-                <Input onChange={(e)=>{setUserDetails(prev=>({...prev,username:e.target.value}))}} size='lg' id='username' placeholder='Username' />
+                <Input onChange={(e)=>{setUserDetails(prev=>({...prev,username:e.target.value}))}} id='username' placeholder='Username' />
             </FormControl>
             {/* Password */}
             <FormControl isRequired>
                 <FormLabel htmlFor='password'>Password</FormLabel>
                 <InputGroup size='md'>
                 <Input
-                    size='lg'
                     type={showPassword ? 'text' : 'password'}
                     placeholder='Enter password'
                     onChange={(e)=>{setUserDetails(prev=>({...prev,password:e.target.value}))}}
@@ -80,7 +79,6 @@ export const Signup = () => {
                 <FormLabel htmlFor='password'>Confirm Password</FormLabel>
                 <InputGroup size='md'>
                 <Input
-                    size='lg'
                     type={showConfirmPassword ? 'text' : 'password'}
                     placeholder='Confirm password'
                     onChange={(e)=>{setUserDetails(prev=>({...prev,confirmPassword:e.target.value}))}}

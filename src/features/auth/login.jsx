@@ -41,14 +41,13 @@ export const Login = () => {
             {/* Username */}
             <FormControl isRequired>
                 <FormLabel htmlFor='username'>Username</FormLabel>
-                <Input onChange={(e)=>{setUserDetails(prev=>({...prev,username:e.target.value}))}} size='lg' id='username' placeholder='Username' />
+                <Input onChange={(e)=>{setUserDetails(prev=>({...prev,username:e.target.value}))}} id='username' placeholder='Username' />
             </FormControl>
             {/* Password */}
             <FormControl isRequired>
                 <FormLabel htmlFor='password'>Password</FormLabel>
                 <InputGroup size='md'>
                 <Input
-                    size='lg'
                     type={showPassword ? 'text' : 'password'}
                     placeholder='Enter password'
                     onChange={(e)=>{setUserDetails(prev=>({...prev,password:e.target.value}))}}

@@ -36,7 +36,7 @@ export const Navbar = () => {
         zIndex='2'
         bg={useColorModeValue("white", "gray.800")}
       >
-        <Link to="/login">
+        <Link to="/">
             <Image w={150} src={useColorModeValue(logo,logo2)} alt='logo' />
         </Link>
         <Spacer />
