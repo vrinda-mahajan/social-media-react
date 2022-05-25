@@ -46,11 +46,11 @@ export const Navbar = () => {
 
         <Menu>
           <MenuButton variant="link">
-            <Avatar size="md" src={profile} />
+            <Avatar name="User profile" size="md" src={profile} />
           </MenuButton>
           <MenuList minWidth="300px" pt={10} pb={2} px={4}>
             <Center>
-              <Avatar size="2xl" src={profile} />
+              <Avatar name='User profile' size="2xl" src={profile} />
             </Center>
             <Center>
               <Text fontSize="lg">Username</Text>

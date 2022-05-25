@@ -15,6 +15,8 @@ export const loginUser = createAsyncThunk(
     async(userDetails, {rejectWithValue})=>{
         try{
             const {data} = await axios.post("/api/auth/login",userDetails);
+            localStorage.setItem("token",data.encodedToken);
+            localStorage.setItem("user",JSON.stringify(data.foundUser));
             return data;
         }
         catch(error){
@@ -26,6 +28,8 @@ export const loginUser = createAsyncThunk(
 export const signupUser = createAsyncThunk("auth/signupUser",async(userDetails,{rejectWithValue})=>{
     try{
         const {data} = await axios.post("/api/auth/signup",userDetails);
+        localStorage.setItem("token",data.encodedToken);
+        localStorage.setItem("user",JSON.stringify(data.createdUser));
         return data;
     }
     catch(error) {
@@ -52,8 +56,6 @@ const authSlice = createSlice({
             state.authStatus= "success";
             state.token=action.payload.encodedToken;
             state.user = action.payload.foundUser;
-            localStorage.setItem("token",state.token);
-            localStorage.setItem("user",JSON.stringify(state.user));
             toast.success("Logged in Successfully")
         },
         [loginUser.rejected]: (state,action) => {
@@ -69,8 +71,6 @@ const authSlice = createSlice({
             state.authStatus= "success";
             state.token=action.payload.encodedToken;
             state.user=action.payload.createdUser;
-            localStorage.setItem("token",state.token);
-            localStorage.setItem("user",JSON.stringify(state.user));
             toast.success("Signed up Successfully");
         },
         [signupUser.rejected]: (state,action) => {
