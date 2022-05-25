@@ -5,6 +5,7 @@
   "dependencies": {
     "@chakra-ui/icons": "^2.0.0",
     "@chakra-ui/react": "^2.0.2",
+    "@chakra-ui/toast": "^2.0.3",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@reduxjs/toolkit": "^1.8.1",
@@ -20,6 +21,7 @@
     "react-redux": "^8.0.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-toastify": "^9.0.1",
     "uuid": "^8.3.2"
   },
   "scripts": {
