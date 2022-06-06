@@ -20,7 +20,7 @@ export const Post = ({post}) => {
         onOpen()
     }
     return (
-        <Box py='6' px='2' mx='20' boxShadow='base' bg={useColorModeValue()} >
+        <Box py='6' px='2' mx='5' boxShadow='base' bg={useColorModeValue()} >
             <Flex mx='10'>
                 <Avatar mr="10px" name={`${firstName} ${lastName}`} size="md" src={profilePic} />
                 <Box w='full'>

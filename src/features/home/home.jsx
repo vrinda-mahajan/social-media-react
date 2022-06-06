@@ -12,18 +12,17 @@ export const Home = () => {
     const {allUsers} = useSelector((store)=>store.users);
     const {allPosts} = useSelector((store)=>store.posts);
     const [filterBy,setFilterBy] = useState("")
-    console.log(user,allUsers,token)
+
     let feedPosts = token?(allPosts.filter((post)=>post.username===user.username)):'null'
     if(filterBy!==""){
         feedPosts= getFilteredData(filterBy,feedPosts)
     }
-    console.log(feedPosts)
    return(
        <Box display='flex'>
         <LeftSidebar w='20%' />
         <Flex w='80%' direction='column' backgroundColor={useColorModeValue( 'background','gray.800')} minW='600px' >
             <PostTextbox />
-            <Flex align='center' mx='20' py='4' px='2'>
+            <Flex align='center' mx='5' py='4' px='2'>
                 <Heading fontSize='24px' as='h6'>Posts</Heading>
                 <Spacer />
         <Menu>

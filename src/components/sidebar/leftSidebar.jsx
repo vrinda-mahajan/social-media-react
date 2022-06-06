@@ -29,13 +29,13 @@ export const LeftSidebar = () => {
           <NavLink key={data.route} to={data.route}>
             {({ isActive }) => (
               <Flex
-                py="10px"
+                py="8px"
                 gap="4"
                 alignItems="center"
                 color={isActive ? "primary" : "inherit"}
               >
-                <Icon fontSize="30px" as={data.icon} />
-                <Text fontSize="20px">{data.title}</Text>
+                <Icon fontSize="25px" as={data.icon} />
+                <Text fontSize="16px">{data.title}</Text>
               </Flex>
             )}
           </NavLink>
@@ -43,8 +43,8 @@ export const LeftSidebar = () => {
       </Box>
       <Button
         my="40px"
-        height="48px"
-        width="200px"
+        height="42px"
+        width="170px"
         fontSize='lg'
         backgroundColor="primary"
         color='gray.800'
@@ -54,7 +54,7 @@ export const LeftSidebar = () => {
       </Button>
       <PostModal isOpen={isOpen} onClose={onClose} />
       {token
-      ?<Flex mt="200px" alignItems="center">
+      ?<Flex mt="230px" alignItems="center">
       <Avatar mr="10px" name="User profile" size="md" src={user.profilePic} />
       <Flex direction="column">
         <Text>{user.firstName}</Text>

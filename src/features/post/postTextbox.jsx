@@ -27,7 +27,7 @@ export const PostTextbox = () => {
         }
     }
     return (
-        <Box mx='20' py='6' px='2' boxShadow='base' >
+        <Box mx='5' py='6' px='2' boxShadow='base' >
             <Flex mx='10'>
                 {token?<Avatar mr="10px" name={user.username} size="md" src={user.profilePic} />:<></>}
                 

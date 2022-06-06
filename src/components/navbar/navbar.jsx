@@ -13,7 +13,7 @@ export const Navbar = () => {
 
     const handleLogout = ()=>{
       dispatch(logoutUser())
-      navigate("/login")
+      navigate("/")
     }
     return (
       <Flex
@@ -26,7 +26,7 @@ export const Navbar = () => {
         zIndex='2'
         bg={useColorModeValue("white", "gray.800")}
       >
-        <Link to="/">
+        <Link to="/home">
             <Image w={150} src={useColorModeValue(logo,logo2)} alt='logo' />
         </Link>
         <Spacer />

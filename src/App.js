@@ -1,4 +1,4 @@
-import { Navbar } from "components";
+import { Navbar, RequireAuth } from "components";
 import { Explore, Home, Login, Signup } from "features";
 import { getAllPosts } from "features/post/postSlice";
 import { getAllUsers } from "features/profile/userSlice";
@@ -28,10 +28,12 @@ function App() {
         closeOnClick />
 
       <Routes>
-        <Route path="/login" element={<Login/>} />
+        <Route path="/" element={<Login/>} />
         <Route path="/signup" element={<Signup/>} />
-        <Route path="/" element={<Home />} />
-        <Route path="/explore" element={<Explore />} />
+        <Route element={<RequireAuth />}>
+          <Route path="/home" element={<Home />} />
+          <Route path="/explore" element={<Explore />} />
+        </Route>
         <Route path="/mock" element={<MockmanEs />} />
       </Routes>
     </div>
