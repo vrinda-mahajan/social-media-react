@@ -18,7 +18,7 @@ export const LeftSidebar = () => {
     <Box
       maxW="300px"
       height="88vh"
-      pl="80px"
+      pl="70px"
       py="20px"
       position="sticky"
       top="81px"

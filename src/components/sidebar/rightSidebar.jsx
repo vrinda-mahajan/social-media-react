@@ -10,7 +10,7 @@ export const RightSidebar = () => {
     <Box 
         minW="350px"
         height="88vh"
-        pr="80px"
+        pr="70px"
         py="20px"
         position="sticky"
         left='500'
