@@ -9,14 +9,14 @@ export const LeftSidebar = () => {
   const { user,token } = useSelector((store) => store.auth);
 
   const sidebarData = [
-    { title: "Home", icon: AiOutlineHome, route: "/" },
+    { title: "Home", icon: AiOutlineHome, route: "/home" },
     { title: "Explore", icon: MdOutlineExplore, route: "/explore" },
     { title: "Bookmarks", icon: BiBookmarks, route: "/bookmarks" },
     { title: "Profile", icon: CgProfile, route: "/profile" },
   ];
   return (
     <Box
-      minW="300px"
+      maxW="300px"
       height="88vh"
       pl="80px"
       py="20px"
@@ -54,7 +54,7 @@ export const LeftSidebar = () => {
       </Button>
       <PostModal isOpen={isOpen} onClose={onClose} />
       {token
-      ?<Flex mt="230px" alignItems="center">
+      ?<Flex mt="200px" alignItems="center">
       <Avatar mr="10px" name="User profile" size="md" src={user.profilePic} />
       <Flex direction="column">
         <Text>{user.firstName}</Text>
