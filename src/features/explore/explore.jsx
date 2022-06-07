@@ -6,7 +6,7 @@ import { useSelector } from "react-redux"
 export const Explore = () => {
     const {allPosts} = useSelector((store)=>store.posts);
     const explorePosts = [...allPosts].reverse()
-    console.log([...allPosts].reverse())
+
     return(
         <Box display='flex'>
         <LeftSidebar w='20%' />

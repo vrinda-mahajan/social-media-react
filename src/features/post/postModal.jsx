@@ -23,7 +23,6 @@ export const PostModal = ({ isOpen, onClose, setEdit, editPostData }) => {
         }
     }
     return (
-      <>
         <Modal
           isCentered
           initialFocusRef={initialRef}
@@ -50,7 +49,6 @@ export const PostModal = ({ isOpen, onClose, setEdit, editPostData }) => {
             </ModalFooter>
           </ModalContent>
         </Modal>
-      </>
     )
   }
   
