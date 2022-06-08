@@ -13,7 +13,7 @@ export const Home = () => {
     const {allPosts} = useSelector((store)=>store.posts);
     const [filterBy,setFilterBy] = useState("")
 
-    let feedPosts = token?(allPosts.filter((post)=>post.username===user.username)):'null'
+    let feedPosts = token?(allPosts?.filter((post)=>post.username===user.username)):'null'
     if(filterBy!==""){
         feedPosts= getFilteredData(filterBy,feedPosts)
     }

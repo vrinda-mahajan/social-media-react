@@ -1,7 +1,7 @@
 import { Navbar, RequireAuth } from "components";
-import { Explore, Home, Login, Signup } from "features";
+import { Bookmark, Explore, Home, Login, Signup } from "features";
 import { getAllPosts } from "features/post/postSlice";
-import { getAllUsers } from "features/profile/userSlice";
+import { getAllUsers, getBookmarks } from "features/profile/userSlice";
 import MockmanEs from "mockman-js";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -13,10 +13,14 @@ import "./App.css";
 function App() {
   const dispatch = useDispatch();
 
+  useEffect(()=> {
+    dispatch(getBookmarks())
+  },[dispatch])
+
   useEffect(()=>{
     dispatch(getAllUsers())
     dispatch(getAllPosts())
-  },[])
+  },[dispatch])
   return (
     <div className="App">
       <Navbar />
@@ -33,6 +37,7 @@ function App() {
         <Route element={<RequireAuth />}>
           <Route path="/home" element={<Home />} />
           <Route path="/explore" element={<Explore />} />
+          <Route path="/bookmarks" element={<Bookmark />} />
         </Route>
         <Route path="/mock" element={<MockmanEs />} />
       </Routes>

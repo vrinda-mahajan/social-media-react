@@ -82,7 +82,8 @@ export const deleteComment = createAsyncThunk("posts/deleteComment",
         const token = localStorage.getItem("token")
         try {
             const {data:{comments}} = await axios.post(
-                `/api/comments/delete/${postId}/%${commentId}`,
+                `/api/comments/delete/${postId}/${commentId}`,
+                {},
                 {headers:{authorization:token}})
             return {comments,postId};
         }catch(err){
@@ -92,11 +93,13 @@ export const deleteComment = createAsyncThunk("posts/deleteComment",
 )
 
 export const likePost = createAsyncThunk("posts/likePost",
+
     async(postId,{rejectWithValue}) => {
-        const token = localStorage.getItem("token")
+        const token = await localStorage.getItem("token")
         try {
             const {data:{posts}} = await axios.post(
                 `/api/posts/like/${postId}`,
+                {},
                 {headers:{authorization:token}})
             return posts;
         }catch(err){
@@ -106,11 +109,13 @@ export const likePost = createAsyncThunk("posts/likePost",
 )
 
 export const dislikePost = createAsyncThunk("posts/dislikePost",
+
     async(postId,{rejectWithValue}) => {
-        const token = localStorage.getItem("token")
+        const token = await localStorage.getItem("token")
         try {
             const {data:{posts}} = await axios.post(
                 `/api/posts/dislike/${postId}`,
+                {},
                 {headers:{authorization:token}})
             return posts;
         }catch(err){
@@ -172,9 +177,9 @@ const postSlice = createSlice({
             state.postStatus='loading'
         },
         [addComment.fulfilled] : (state,action) => {
-            state.postStatus='success';
             const postIndex = state.allPosts.findIndex((post)=>post._id === action.payload.postId)
             state.allPosts[postIndex].comments=action.payload.comments
+            state.postStatus='success';
         },
         [addComment.rejected] : (state,action) => {
             state.postStatus='rejected';

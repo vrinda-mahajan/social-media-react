@@ -5,7 +5,7 @@ import { CgProfile } from "react-icons/cg";
 import { FiHeart } from "react-icons/fi"
 import { GoComment } from "react-icons/go"
 import { HiOutlinePhotograph } from "react-icons/hi"
-import { MdOutlinePhoto, MdOutlineShare, MdOutlineExplore } from "react-icons/md"
+import { MdOutlinePhoto, MdOutlineShare, MdOutlineExplore,MdDelete } from "react-icons/md"
 import { VscComment } from "react-icons/vsc"
 
 
@@ -24,6 +24,7 @@ export {
     FiHeart,
     GoComment,
     HiOutlinePhotograph,
+    MdDelete,
     MdOutlineExplore,
     MdOutlinePhoto,
     MdOutlineShare,

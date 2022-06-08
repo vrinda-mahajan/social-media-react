@@ -47,7 +47,8 @@ export const LeftSidebar = () => {
         width="170px"
         fontSize='lg'
         backgroundColor="primary"
-        color='gray.800'
+        color='white'
+        _hover={{bg: 'gray.700'}}
         onClick={onOpen}
       >
         Create new Post
