@@ -1,8 +1,7 @@
 import { Box, Flex, Heading, useColorModeValue } from "@chakra-ui/react"
 import { LeftSidebar, RightSidebar } from "components"
 import { Post } from "features"
-
-const { useSelector } = require("react-redux")
+import { useSelector } from "react-redux"
 
 export const Bookmark = () => {
     const {bookmarks} = useSelector((store)=>store.users)
