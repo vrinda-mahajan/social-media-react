@@ -6,5 +6,6 @@ import { PostModal } from "./post/postModal";
 import { PostTextbox } from "./post/postTextbox";
 import { Explore } from "./explore/explore";
 import { Bookmark } from "./bookmark/bookmark";
+import { Profile } from "./profile/profile";
 
-export { Login, Signup, Home, Post, PostModal, PostTextbox, Explore,Bookmark }
+export { Login, Signup, Home, Post, PostModal, PostTextbox, Explore,Bookmark, Profile }
