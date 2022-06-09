@@ -20,7 +20,7 @@ export const Login = () => {
     const loginHandler = () => {
         if (userDetails.username !=="" && userDetails.password !==""){
              dispatch(loginUser(userDetails));
-             navigate("/");
+             navigate("/home");
         }
         else {
             toast.error("Please enter all details");
@@ -28,7 +28,7 @@ export const Login = () => {
     }
     const testLoginHandler = () => {
         dispatch(loginUser({username: "adarshbalika",password: "adarshBalika123"}));
-        navigate("/");
+        navigate("/home");
     }
 
     return (
