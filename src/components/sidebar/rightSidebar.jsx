@@ -1,10 +1,12 @@
 import { SearchIcon, SmallAddIcon } from "@chakra-ui/icons";
 import { Avatar, Box, Button, Flex, Heading, Input, InputGroup, InputLeftElement, Spacer, Text, useColorModeValue } from "@chakra-ui/react"
-import { useSelector } from "react-redux";
+import { followUser } from "features/profile/userSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export const RightSidebar = () => {
   const { user,token } = useSelector((store) => store.auth);
   const {allUsers} = useSelector((store) => store.users);
+  const dispatch = useDispatch()
   const peopleToFollow = token?(allUsers.filter((singleUser)=>singleUser.username!==user.username)):null
   return(
     <Box 
@@ -26,15 +28,18 @@ export const RightSidebar = () => {
         <Text fontSize='xl' as='samp'>People to follow</Text>
             {token
             ?<>
-                {peopleToFollow.map((user)=>
-                <Flex key={user._id} py='3' alignItems="center">
-                    <Avatar mr="10px" name={`${user.firstName} ${user.lastName}`} size="md" src={user.profilePic} />
+                {peopleToFollow.map((currUser)=>
+                <Flex key={currUser._id} py='3' alignItems="center">
+                    <Avatar mr="10px" name={`${currUser.firstName} ${currUser.lastName}`} size="md" src={currUser.profilePic} />
                     <Flex direction="column">
-                        <Heading fontSize='16px' as='h6'>{`${user.firstName} ${user.lastName}`}</Heading>
-                        <Text>@{user.username}</Text>
+                        <Heading fontSize='16px' as='h6'>{`${currUser.firstName} ${currUser.lastName}`}</Heading>
+                        <Text>@{currUser.username}</Text>
                     </Flex>
                     <Spacer />
-                    <Button borderRadius='100px'  variant='ghost'>Follow <SmallAddIcon/></Button>
+                    {currUser.followers.some(({username})=>username===user.username)
+                    ?<Button borderRadius='100px' variant='ghost'>Following</Button>
+                    :<Button onClick={()=>dispatch(followUser(currUser._id))} borderRadius='100px'  variant='ghost'>Follow <SmallAddIcon/></Button>}
+                    
                 </Flex>)}
             </>
             :<></>}

@@ -23,7 +23,7 @@ export const Navbar = () => {
         top={0}
         borderBottom="1px"
         borderColor={useColorModeValue("green.100", "gray.700")}
-        zIndex='2'
+        zIndex='3'
         bg={useColorModeValue("white", "gray.800")}
       >
         <Link to="/home">

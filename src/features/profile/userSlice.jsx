@@ -3,6 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
     allUsers:[],
+    bookmarks:[],
     usersStatus:'idle',
     usersError: null,
 }
@@ -41,6 +42,7 @@ export const followUser = createAsyncThunk("users/followUser",
         try {
             const {data: {user,followUser}} = await axios.post(
                 `/api/users/follow/${followUserId}`,
+                {},
                 {headers:{authorization:token}})
             return {user,followUser}
         }catch(err){
@@ -55,10 +57,52 @@ export const unfollowUser = createAsyncThunk ("users/unfollowUser",
         try {
             const {data:{user,followUser}} = axios.post(
                 `/api/users/unfollow/${followUserId}`,
+                {},
                 {headers:{authorization:token}})
             return {user,followUser}
         } catch (err) {
             rejectWithValue(err.response.data)
+        }
+    })
+
+export const getBookmarks = createAsyncThunk ("users/getBookmarks",
+    async(_,{rejectWithValue})=>{
+        const token = localStorage.getItem("token");
+        try{
+            const {data:{bookmarks}} = await axios.get(
+                `/api/users/bookmark`,
+                {},
+                {headers:{authorization:token}})
+            return bookmarks;
+        }catch (err) {
+            return rejectWithValue(err.response.data)
+        }
+    })
+export const addBookmark = createAsyncThunk ("users/addBookmark",
+    async(postId,{rejectWithValue})=>{
+        const token = localStorage.getItem("token");
+        try{
+            const {data:{bookmarks}} = await axios.post(
+                `/api/users/bookmark/${postId}`,
+                {},
+                {headers:{authorization:token}})
+            return bookmarks
+        }catch (err) {
+            return rejectWithValue(err.response.data)
+        }
+    })
+
+export const removeBookmark = createAsyncThunk ("users/removeBookmark",
+    async(postId,{rejectWithValue})=>{
+        const token = localStorage.getItem("token");
+        try{
+            const {data:{bookmarks}} = await axios.post(
+                `/api/users/remove-bookmark/${postId}`,
+                {},
+                {headers:{authorization:token}})
+            return bookmarks
+        }catch (err) {
+            return rejectWithValue(err.response.data)
         }
     })
 const usersSlice = createSlice({
@@ -122,6 +166,40 @@ const usersSlice = createSlice({
         [unfollowUser.rejected]: (state,action) => {
             state.usersStatus = 'rejected';
             state.usersError = action.payload;
+        },
+
+        [getBookmarks.pending]: (state) => {
+            state.usersStatus = "loading";
+        },
+        [getBookmarks.fulfilled]: (state, action) => {
+            state.usersStatus = "success";
+            state.bookmarks = action.payload;
+        },
+        [getBookmarks.rejected]: (state, action) => {
+            state.usersStatus = "rejected";
+            state.usersError = action.payload.errors;
+        },
+        [addBookmark.pending]: (state) => {
+            state.usersStatus = "loading";
+        },
+        [addBookmark.fulfilled]: (state, action) => {
+            state.usersStatus = "success";
+            state.bookmarks = action.payload;
+        },
+        [addBookmark.rejected]: (state, action) => {
+            state.usersStatus = "rejected";
+            state.usersError = action.payload.err;
+        },
+        [removeBookmark.pending]: (state) => {
+            state.usersStatus = "loading";
+        },
+        [removeBookmark.fulfilled]: (state, action) => {
+            state.usersStatus = "success";
+            state.bookmarks = action.payload;
+        },
+        [removeBookmark.rejected]: (state, action) => {
+            state.usersStatus = "rejected";
+            state.usersError = action.payload.errors;
         },
     }
 })
