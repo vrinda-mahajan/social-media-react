@@ -2,20 +2,13 @@ import { Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButto
 import { useRef, useState } from "react"
 import { useDispatch } from "react-redux"
 import { editUser } from "./userSlice"
-// import { toast } from "react-toastify"
-// import { createPost, editPost } from "./postSlice"
-// import { editUser } from "./userSlice"
-console.log(editUser)
 
 export const EditProfileModal = ({ isOpen, onClose, bio, portfolio }) => {
     const initialRef = useRef(null)
     const dispatch = useDispatch()
-    // const [postContent,setPostContent] = useState(editPostData?.content||"");
     const [portfolioInput, setPortfolioInput] = useState(portfolio);
     const [bioInput, setBioInput] = useState(bio);
-    // const [url, setUrl] = useState();
     const editUserHandler = () => {
-        console.log(bioInput,portfolioInput)
             dispatch(editUser({portfolio:portfolioInput,bio:bioInput}))
             onClose()
     }
