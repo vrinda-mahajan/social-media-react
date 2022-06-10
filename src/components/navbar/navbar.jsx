@@ -47,7 +47,9 @@ export const Navbar = () => {
               <Text fontSize="lg">{`${user.firstName} ${user.lastName}`}</Text>
             </Center>
             <MenuDivider pt={2} />
-            <MenuItem fontSize="xl">My Account</MenuItem>
+            <Link to={`/profile/${user.username}`}>
+              <MenuItem fontSize="xl">My Account</MenuItem>
+            </Link>
             <MenuItem onClick={handleLogout} fontSize="xl">Logout</MenuItem>
           </MenuList>
         </Menu>

@@ -12,7 +12,7 @@ export const LeftSidebar = () => {
     { title: "Home", icon: AiOutlineHome, route: "/home" },
     { title: "Explore", icon: MdOutlineExplore, route: "/explore" },
     { title: "Bookmarks", icon: BiBookmarks, route: "/bookmarks" },
-    { title: "Profile", icon: CgProfile, route: "/profile" },
+    { title: "Profile", icon: CgProfile, route: `/profile/${user.username}` },
   ];
   return (
     <Box

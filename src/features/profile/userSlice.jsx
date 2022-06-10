@@ -21,12 +21,13 @@ export const getAllUsers = createAsyncThunk("users/getAllUsers",
 )
 
 export const editUser = createAsyncThunk("users/editUser",
-    async(userDetails,{rejectWithValue}) => {
-        const token = localStorage.getItem("token")
-        try{
+async(userData,{rejectWithValue}) => {
+    console.log("Welcome to edit user")
+    const token = localStorage.getItem("token")
+    try{
             const res = await axios.post(
                 "/api/users/edit",
-                {userDetails},
+                {userData},
                 {headers:{authorization:token}})
             return res.data.user;
         } catch (err) {
@@ -124,7 +125,7 @@ const usersSlice = createSlice({
         [editUser.pending]: (state) => {
             state.usersStatus = 'loading'
         },
-        [editUser.pending]: (state,action) => {
+        [editUser.fulfilled]: (state,action) => {
             const editedUser = action.payload;
             const editedUserIndex = state.allUsers.findIndex(({_id})=>_id===editedUser._id);
             state.allUsers[editedUserIndex] = action.payload;

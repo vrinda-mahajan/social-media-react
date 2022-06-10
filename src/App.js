@@ -1,5 +1,5 @@
 import { Navbar, RequireAuth } from "components";
-import { Bookmark, Explore, Home, Login, Signup } from "features";
+import { Bookmark, Explore, Home, Login, Profile, Signup } from "features";
 import { getAllPosts } from "features/post/postSlice";
 import { getAllUsers, getBookmarks } from "features/profile/userSlice";
 import MockmanEs from "mockman-js";
@@ -38,6 +38,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/bookmarks" element={<Bookmark />} />
+          <Route path="/profile/:currUsername" element={<Profile />} />
         </Route>
         <Route path="/mock" element={<MockmanEs />} />
       </Routes>

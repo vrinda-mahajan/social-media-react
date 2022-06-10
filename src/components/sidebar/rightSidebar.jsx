@@ -2,6 +2,7 @@ import { SearchIcon, SmallAddIcon } from "@chakra-ui/icons";
 import { Avatar, Box, Button, Flex, Heading, Input, InputGroup, InputLeftElement, Spacer, Text, useColorModeValue } from "@chakra-ui/react"
 import { followUser } from "features/profile/userSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export const RightSidebar = () => {
   const { user,token } = useSelector((store) => store.auth);
@@ -30,11 +31,15 @@ export const RightSidebar = () => {
             ?<>
                 {peopleToFollow.map((currUser)=>
                 <Flex key={currUser._id} py='3' alignItems="center">
-                    <Avatar mr="10px" name={`${currUser.firstName} ${currUser.lastName}`} size="md" src={currUser.profilePic} />
-                    <Flex direction="column">
-                        <Heading fontSize='16px' as='h6'>{`${currUser.firstName} ${currUser.lastName}`}</Heading>
-                        <Text>@{currUser.username}</Text>
-                    </Flex>
+                    <Link to={`/profile/${currUser.username}`}>
+                        <Flex>
+                            <Avatar mr="10px" name={`${currUser.firstName} ${currUser.lastName}`} size="md" src={currUser.profilePic} />
+                            <Flex direction="column">
+                                <Heading fontSize='16px' as='h6'>{`${currUser.firstName} ${currUser.lastName}`}</Heading>
+                                <Text>@{currUser.username}</Text>
+                            </Flex>
+                        </Flex>
+                    </Link>
                     <Spacer />
                     {currUser.followers.some(({username})=>username===user.username)
                     ?<Button borderRadius='100px' variant='ghost'>Following</Button>
